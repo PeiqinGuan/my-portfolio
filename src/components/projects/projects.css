@@ -1,0 +1,138 @@
+.projects__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.projects__item {
+  background: var(--clr-variant);
+  padding: 1.2rem;
+  border-radius: 2rem;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  filter: blur(3px);
+  transition: all 600ms;
+  transform: translateX(-10%);
+}
+
+.projects__item:hover {
+  background: transparent;
+  box-shadow: var(--box-shadow);
+}
+
+.projects__item-image {
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.projects__item-image > img {
+  object-fit: cover;
+  object-position: top left;
+  aspect-ratio: 16 / 10;
+  cursor: pointer;
+  scale: 1;
+  transition: var(--transition);
+}
+
+.projects__item-image > img:hover {
+  scale: 1.05;
+}
+
+.projects__item h3 {
+  margin: 1rem 0 0.3rem;
+  font-weight: bold;
+}
+
+.stack-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stack-tag {
+  padding: 0 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  background: white;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.projects__item:hover .stack-tag {
+  background: var(--clr-variant);
+  box-shadow: none;
+}
+
+.projects__item > p {
+  flex: 1;
+}
+
+.projects__item-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.3rem;
+}
+
+.arrow {
+  translate: 3px 3px;
+  transition: translate var(--transition);
+}
+
+.btn:hover .arrow {
+  translate: 10px 3px;
+}
+
+/* =========Scrolling transition========== */
+#projects > *:nth-child(1), #projects > *:nth-child(2) {
+  opacity: 0;
+  filter: blur(3px);
+  transition: all 600ms;
+  transform: translateX(-10%);
+}
+
+#projects.visible > *:nth-child(1), #projects.visible > *:nth-child(2) {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+#projects > *:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+.projects__item.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+.projects__item:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+.projects__item:nth-child(3) {
+  transition-delay: 400ms;
+}
+
+.projects__item:nth-child(4) {
+  transition-delay: 600ms;
+}
+
+/* ========Media queries (medium devices) ============== */
+@media screen and (max-width: 1024px) {
+  .projects__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
+
+/* ========Media queries (small devices) ============== */
+@media screen and (max-width: 600px) {
+  .projects__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

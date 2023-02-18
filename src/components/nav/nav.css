@@ -1,0 +1,178 @@
+.navbar {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  animation: slideIn 600ms ease-in;
+  z-index: 10;
+  translate: 0 -100%;
+  transition: translate 200ms;
+}
+
+.navbar.show {
+  translate: 0 0;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  80% {
+    transform: translateY(10%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: white;
+  display: flex;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 16%);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.avatar:hover {
+  transform: scale(0.9);
+}
+
+/* ======== Icon interaction ========== */
+
+.sup-text {
+  position: absolute;
+  left: -7px;
+  top: 14px;
+  width: auto;
+  padding: 6px 12px;
+  border-radius: 24px;
+  background-color: var(--clr-primary);
+  color: white;
+  opacity: 0;
+}
+
+.sup-text.active {
+  opacity: 1;
+  translate: 0 50px;
+  transition: translate 1s, opacity 1s;
+}
+
+
+.avatar img {
+  border-radius: 100%;
+  width: 55%;
+  margin: auto;
+}
+
+.avatar img.active {
+  animation: icon-move 600ms 300ms;
+}
+
+@keyframes icon-move {
+  50% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.cta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-radius: 2rem;
+  background: white;
+  padding: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 16%);
+  transition: var(--transition);
+}
+
+.cta:hover {
+  scale: 0.9;
+}
+
+.menu-button {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 100%;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 16%);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.menu-button:hover {
+  scale: 0.9;
+}
+
+.menu-button .hamburger {
+  transition: translate 1s, rotate 1s;
+}
+
+.menu-button .hamburger.open {
+  translate: 3px -3px;
+  rotate: .125turn;
+}
+
+.menu-button .hamburger .line {
+  stroke-dasharray: 60 31 60 200;
+  transition: 1s;
+}
+
+.menu-button .hamburger.open .line {
+  stroke-dasharray: 60 105 60 200;
+  stroke-dashoffset: -90;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 16%);
+  padding: 0.8rem;
+  position: absolute;
+  top: calc(1.5rem + 70px);
+  right: 1.5rem;
+  z-index: 1;
+  scale: 0;
+  transition: var(--transition);
+  transform-origin: top right;
+}
+
+nav.open {
+  scale: 1;
+}
+
+nav a {
+  color: var(--clr-light);
+  font-size: 1.3rem;
+  padding: 0.7rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+nav a > * {
+  margin-right: 1rem;
+}
+
+nav a:hover {
+  background-color: var(--clr-bg);
+}

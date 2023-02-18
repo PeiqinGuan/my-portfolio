@@ -1,0 +1,89 @@
+#contact {
+  background: var(--clr-bg-variant);
+}
+
+.contact-container {
+  margin: 1rem auto;
+  padding: 10px;
+  border-radius: 20px;
+  background: white;
+  width: 65%;
+  max-width: 550px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem 0;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--clr-bg-variant);
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+}
+
+label input, textarea {
+  background: inherit;
+  font-size: 1.1rem;
+  font-weight: bold;
+  resize: none;
+  font-family: "Poppins", sans-serif;
+  max-width: 100%;
+  height: auto;
+}
+
+label:hover {
+  border: 2px solid #b5b9bc70;
+}
+
+label:focus-within {
+  border: 2px solid var(--clr-light);
+  box-shadow: 0 0 0 3px rgba(50, 50, 53, 0.25);
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-row > button {
+  width: 50%;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+}
+
+.social a:hover {
+  translate: 0 -3px;
+}
+
+/* =========Scrolling transition========== */
+#contact > *:nth-child(1), #contact > *:nth-child(2) {
+  opacity: 0;
+  filter: blur(3px);
+  transition: all 600ms;
+  transform: translateX(-10%);
+}
+
+#contact.visible > *:nth-child(1), #contact.visible > *:nth-child(2) {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+#contact > *:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+#contact.visible .skills__container {
+  opacity: 1;
+}
